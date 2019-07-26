@@ -125,7 +125,11 @@ export function signUpUser({name, email, password, password2 = password, avatar}
 		return axios.post(`${apiUrl}/register`, data)
 			.then(res =>
 			{
-				dispatch(signUpUserSuccess(res.data));
+				const { token } = res.data;
+				const   decoded = jwt_decode(token);
+
+				setAuthentication(token);
+				dispatch(activateUserSuccess(decoded));
 
 			})
 			.catch(err =>
@@ -146,10 +150,10 @@ export function signUpUser({name, email, password, password2 = password, avatar}
 
 };
 
-export function signUpUserSuccess(data)
+export function signUpUserSuccess(user)
 {
 	return {
-        type: SIGNUP_USER, payload: data
+        type: SIGNUP_USER, payload: user
 
 	};
 

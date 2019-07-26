@@ -16,8 +16,7 @@ const mapStateToProps = state =>
 
 		},
 
-		errors  : state.userReducer.errors,
-		activate: state.userReducer.activate
+		errors: state.userReducer.errors
 
     };
 
@@ -88,7 +87,7 @@ class CreateUpdate extends Component
 					if(!Object.keys(this.props.errors).length)
 						this.props.history.push(to);
 
-				}, 355);
+				}, 500);
 
 			},
 

@@ -21,15 +21,6 @@ class ActivateMessage extends Component
 	{
         super()
 
-        this.state =
-		{
-            id		: "",
-            name	: "",
-            email	: "",
-			avatar  : ""
-
-        };
-
 		this.handleClick = this.handleClick.bind(this);
 
     }
@@ -54,6 +45,7 @@ class ActivateMessage extends Component
 
 	render()
 	{
+
 		return (
 			<Fragment>
 				<div className="field">

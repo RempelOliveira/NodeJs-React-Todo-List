@@ -72,7 +72,7 @@ class Upload extends Component
 					if(!Object.keys(this.props.errors).length)
 						this.props.history.push("/");
 
-				}, 355);
+				}, 500);
 
 			},
 

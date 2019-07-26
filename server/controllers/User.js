@@ -66,35 +66,49 @@ module.exports =
 							newUser.save()
 								.then(user =>
 								{
-									SendMail.send
-									({
-										template: "SignUp", message: {to: user.email, subject: "Welcome to TODO app!"}, locals: {name: user.name, link: "http://localhost:3000/user/activate/" + user.id}});
-
-									jobs[user.id] = cron.schedule("00 30 13 * * *", () => // will execute on every 13:30
+									const payload =
 									{
-										User.findById(user.id, {id: true, active: true, mail: true, name: true})
-											.then(user =>
-											{
-												if(user && user.active == false)
-												{
-													SendMail.send
-													({
-														template: "Activation/Remember", message: {to: user.email, subject: "Activate your registration in the TODO application!"}, locals: {name: user.name, link: "http://localhost:3000/user/activate/" + user.id}});
+										id	  : user.id,
+										name  : user.name,
+										email : user.email,
+										avatar: user.avatar,
+										active: user.active
 
-												}
-												else
+									};
+
+									jwt.sign(payload, keys.secretOrKey, {expiresIn: 31556926}, (err, token) =>
+									{
+										SendMail.send
+										({
+											template: "SignUp", message: {to: user.email, subject: "Welcome to TODO app!"}, locals: {name: user.name, link: "http://localhost:3000/user/activate/" + user.id}});
+
+										jobs[user.id] = cron.schedule("00 30 13 * * *", () => // will execute on every 13:30
+										{
+											User.findById(user.id, {id: true, active: true, mail: true, name: true})
+												.then(user =>
+												{
+													if(user && user.active == false)
+													{
+														SendMail.send
+														({
+															template: "Activation/Remember", message: {to: user.email, subject: "Activate your registration in the TODO application!"}, locals: {name: user.name, link: "http://localhost:3000/user/activate/" + user.id}});
+
+													}
+													else
+														jobs[user.id].stop();
+
+												})
+												.catch(() =>
+												{
 													jobs[user.id].stop();
 
-											})
-											.catch(() =>
-											{
-												jobs[user.id].stop();
+												});
 
-											});
+										});
+
+										res.status(200).json({token: "Bearer " + token});
 
 									});
-
-									res.status(200).json({activate: true});
 
 								})
 								.catch(err =>

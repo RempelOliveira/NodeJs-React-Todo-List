@@ -32,7 +32,7 @@ function userReducer(state = initialState, action)
 	if(action.type === SIGNUP_USER)
 	{
 		return {
-			...state, isAuthenticated: false, user: {}, errors: {}, activate: action.payload.activate
+			...state, isAuthenticated: false, user: action.payload, errors: {}
 
 		};
 
