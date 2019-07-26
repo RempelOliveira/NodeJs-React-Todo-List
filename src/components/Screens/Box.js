@@ -66,7 +66,7 @@ class Box extends Component
 		let { user  } = this.props;
 		let { state } = this;
 
-		if(user.isAuthenticated && state.name != user.data.name)
+		if(user.isAuthenticated && state.name !== user.data.name)
 		{
 			this.setState({
 				name  : user.isAuthenticated ? 				 user.data.name   : "Guest",
@@ -91,8 +91,6 @@ class Box extends Component
     render()
 	{
 		let { state }  = this;
-
-		let { user }   = this.props;
 		let { errors } = this.props;
 
 		return (

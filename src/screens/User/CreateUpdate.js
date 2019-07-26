@@ -4,7 +4,6 @@ import { withRouter } from "react-router-dom";
 
 import { signUpUser, updateUser, formUserFailed } from "../../actions/User";
 
-import Button from "../../components/Forms/Button";
 import Form from "./Partials/Form";
 
 const mapStateToProps = state =>
