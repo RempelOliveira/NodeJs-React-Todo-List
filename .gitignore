@@ -2,4 +2,5 @@
 /package-lock.json
 /src/style/utils.css
 /src/style/theme.css
-/uploads/*
+uploads/*
+!uploads/.README.md
