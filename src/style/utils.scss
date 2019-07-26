@@ -1,0 +1,259 @@
+@import "bulma/sass/utilities/initial-variables";
+
+// Input
+.is-task-title
+{
+    & .input
+	{
+        box-shadow: 0 3px 12px -1px rgba(#121621, .1);
+        border: 1px solid hsl(0, 0%, 90%);
+        font-weight: bold;
+
+        &::placeholder
+		{
+            font-weight: bold;
+            color: hsl(0, 0%, 46%);
+
+        }
+
+        &:hover
+		{
+            border-color: #b5b5b5;
+
+        }
+
+    }
+
+}
+
+.input.fit-content
+{
+    width: fit-content;
+
+}
+
+// Columns
+.column
+{
+    & .box
+	{
+        border-radius: 1rem;
+        padding: 2rem 2rem 2rem 2rem;
+        box-shadow: 8px 14px 38px rgba(39, 44, 49, .3);
+
+    }
+
+    &.is-centered
+	{
+        display: flex;
+        align-items: center;
+
+    }
+
+}
+
+// Button
+.button.is-tiny
+{
+    font-size: .5rem;
+
+}
+
+.ladda-button
+{
+	background: #3273dc!important;
+	border-radius: 4px!important;
+
+	padding-bottom: 7px!important;
+    padding-left: 0.75em!important;
+    padding-right: 0.75em!important;
+    padding-top: 6px!important;
+
+	font-size: 16px!important;
+
+}
+
+// Tabs
+.tabs
+{
+    margin-bottom: 0 !important;
+
+    & ul
+	{
+        border-bottom-color: #dbdbdb !important;
+        border-bottom-style: solid !important;
+        border-bottom-width: 1px !important;
+
+    }
+
+	& .button-link
+	{
+		width: 100%;
+
+	}
+
+	& li button
+	{
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		margin-bottom: -1px;
+		border-bottom-color: #dadada!important;
+
+	}
+
+	& li button:hover
+	{
+		border-bottom-color: #3473da!important;
+
+	}
+
+	& li.is-active button,
+	& li.is-active button:hover, & li.is-active button:active, & li.is-active button:focus
+	{
+		border-bottom-color: #3473da!important;
+		background-color: #f8f8f8;
+
+	}
+
+}
+
+// Level
+.level
+{
+    padding-top: .75rem;
+
+}
+
+// Task List
+.is-task-list
+{
+	margin-bottom: 28px;
+
+    & .box
+	{
+        padding: 0rem 0rem 0rem 0rem;
+        color: hsl(0, 0%, 46%);
+        border: none;
+        border-top: 0;
+        border-bottom: 0;
+        border-radius: 0;
+        margin-bottom: 0;
+        box-shadow: none;
+
+        &:first-child
+		{
+            padding-top: 1.2rem;
+            border-radius: .3rem .3rem 0 0;
+
+        }
+
+        &:last-child
+		{
+            border-radius: 0 0 .3rem .3rem;
+
+        }
+
+    }
+
+	& .button-link,
+	& .button-link:hover, & .button-link:focus, & .button-link:active
+	{
+		color: #276cda;
+
+	}
+
+}
+
+// Notification
+.notification
+{
+    font-size: .75rem;
+    padding: .75rem;
+    position: fixed;
+    width: fit-content;
+    max-width: 100%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 5%;
+
+}
+
+// Images
+
+figure
+{
+	margin: 0!important;
+
+	&.image
+	{
+		& .is-rounded
+		{
+			object-fit: cover;
+			object-position: center center;
+			height: 100%;
+			width: 100%;
+
+		}
+
+	}
+
+}
+
+// Files
+
+.file.is-boxed
+{
+	& .file-cta
+	{
+		&.file-cta-with-preview
+		{
+			background-color: transparent;
+
+		}
+
+	}
+
+}
+
+// Columns
+
+.columns
+{
+	& .column
+	{
+		&.is-width-94
+		{
+			max-width: 94px;
+
+		}
+
+	}
+
+}
+
+// Message
+
+.message
+{
+	&.network-error
+	{
+		margin-top: 12px;
+
+	}
+
+	& .message-header
+	{
+		border-radius: 4px;
+
+	}
+
+}
+
+// Divider
+
+.is-divider
+{
+	height: 2px;
+
+}
